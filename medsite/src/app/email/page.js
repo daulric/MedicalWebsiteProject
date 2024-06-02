@@ -1,20 +1,11 @@
-'use client'
+import { Fragment} from "react"
 
-import React, { Fragment, useEffect } from "react"
-
-import { useSearchParams } from "next/navigation"
-
-function MessagePage() {
+function MessagePage(props) {
+    const useSearchParams = props.searchParams
     
-    const router = useSearchParams()
-    
-    let name = router.get("name")
-    let email = router.get("email")
-    let message = router.get("message")
-
-    useEffect(() => {
-        document.title = `Email Message From ${name}`
-    })
+    let name = useSearchParams.name
+    let email = useSearchParams.email
+    let message = useSearchParams.message
 
     return (
         <Fragment>
